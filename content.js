@@ -1,4 +1,10 @@
 (async () => {
+  // 只在 PWA 窗口内生效，普通浏览器标签页不拦截
+  const inPwa = window.matchMedia('(display-mode: standalone)').matches
+    || window.matchMedia('(display-mode: fullscreen)').matches
+    || window.matchMedia('(display-mode: minimal-ui)').matches;
+  if (!inPwa) return;
+  
   const { rules = [] } = await chrome.storage.sync.get('rules');
   if (!rules.length) return;
 
