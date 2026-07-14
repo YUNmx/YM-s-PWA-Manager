@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="width:300px;padding:10px;">
+  <h3>PWA 扩展域名</h3>
+  <label>起始域名（自动检测，可手动修改）</label>
+  <input type="text" id="origin"><br><br>
+  <label>扩展域名（每行一个，支持通配符 *）</label>
+  <textarea id="patterns" rows="4" placeholder="例如: space.example.com
+*.example.com
+other.site.org"></textarea>
+  <button id="save">保存配置</button>
+  <button id="openSettings" style="margin-top:8px;background:none;border:1px solid #ccc;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:12px;">管理所有规则</button>
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
