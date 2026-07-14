@@ -4,13 +4,18 @@
     || window.matchMedia('(display-mode: fullscreen)').matches
     || window.matchMedia('(display-mode: minimal-ui)').matches;
   if (!inPwa) return;
-  
+
   const { rules = [] } = await chrome.storage.sync.get('rules');
   if (!rules.length) return;
-
-  // 当前页面是否匹配某个起始域名
-  const host = location.hostname;
-  const applicable = rules.filter(rule => rule.enabled !== false && hostMatches(host, rule.origin));
+  
+  // 记录 PWA 窗口的起始域名，跨页面跳转仍以原始域名匹配规则
+  // window.name 在同一窗口内跨域导航后保持不变，sessionStorage 不行（origin 隔离）
+  const PWA_ORIGIN_KEY = '__pwa_origin__';
+  let storedOrigin = null;
+  try { storedOrigin = JSON.parse(window.name)[PWA_ORIGIN_KEY]; } catch {}
+  const origin = storedOrigin || location.hostname;
+  window.name = JSON.stringify({ [PWA_ORIGIN_KEY]: origin });
+  const applicable = rules.filter(rule => rule.enabled !== false && hostMatches(origin, rule.origin));
   if (!applicable.length) return;
 
   document.addEventListener('click', function(e) {
