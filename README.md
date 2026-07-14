@@ -11,10 +11,10 @@ Used to extend the recognition domain of PWA applications in Chrome. When clicki
 **The following are known bugs**
 **以下是已知bug**
 
-- This mechanism will also be applied in non PWA applications
-- Always match according to the domain name matching rules of the currently opened URL, rather than matching based on the starting domain name of the PWA application
+- ~~This mechanism will also be applied in non PWA applications~~ **Fixed**
+- ~~Always match according to the domain name matching rules of the currently opened URL, rather than matching based on the starting domain name of the PWA application~~ **Fixed**
 - The redirected window will display an address bar
 
-- 在非PWA应用内也会应用该机制
-- 始终按照当前打开网址的域名匹配规则，而不是根据PWA应用的起始域名匹配
+- ~~在非PWA应用内也会应用该机制~~ **已修复**
+- ~~始终按照当前打开网址的域名匹配规则，而不是根据PWA应用的起始域名匹配~~ **已修复**
 - 跳转的窗口会显示地址栏
