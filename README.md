@@ -17,4 +17,4 @@ Used to extend the recognition domain of PWA applications in Chrome. When clicki
 
 - ~~在非PWA应用内也会应用该机制~~ **已修复**
 - ~~始终按照当前打开网址的域名匹配规则，而不是根据PWA应用的起始域名匹配~~ **已修复**
-- 跳转的窗口会显示地址栏
+- 跳转的窗口会显示地址栏（Chromium 层面安全限制，暂无扩展侧解决方案）
